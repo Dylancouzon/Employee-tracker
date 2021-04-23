@@ -1,19 +1,53 @@
-const mysql = require('mysql');
 const inquirer = require("inquirer");
-const Instance = require("./lib/employee");
+const Action = require("./lib/employee");
 
-const instance = Instance();
+const action = new Action();
 
-const connection = mysql.createConnection({
-    host: 'localhost',
 
-    // Your port; if not 3306
-    port: 3306,
 
-    // Your username
-    user: 'root',
+function begin() {
+    inquirer
+        .prompt(
+            {
+                type: 'list',
+                message: 'Pick one option:',
+                name: 'choice',
+                choices: [
+                    'View all employees',
+                    'View all employees by Department',
+                    'View all employees by Manager',
+                    'Add employee',
+                    'Remove employee',
+                    'Update employee role',
+                    'Update employee manager'
+                ]
+            })
+        .then((response) => {
+            switch (response.choice) {
+                case 'View all employees':
+                    action.view();
+                    break;
+                case 'View all employees by Department':
+                    action.viewDepartment();
+                    break;
+                case 'View all employees by Manager':
+                    action.viewManager();
+                    break;
+                case 'Add employee':
+                    action.addEmployee();
+                    break;
+                case 'Remove employee':
+                    action.removeEmployee();
+                    break;
+                case 'Update employee role':
+                    action.updateRole();
+                    break;
+                case 'Update employee manager':
+                    action.updateManager();
+                    break;
+            }
+        })
+        
+}
 
-    // Be sure to update with your own MySQL password!
-    password: 'password',
-    database: 'tracker',
-});
+begin();
