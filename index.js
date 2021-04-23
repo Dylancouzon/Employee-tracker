@@ -1,7 +1,7 @@
 const inquirer = require("inquirer");
-const Action = require("./lib/employee");
+const Module = require("./lib/Module");
 
-const action = new Action();
+const module = new Module();
 
 
 
@@ -14,36 +14,29 @@ function begin() {
                 name: 'choice',
                 choices: [
                     'View all employees',
-                    'View all employees by Department',
-                    'View all employees by Manager',
-                    'Add employee',
-                    'Remove employee',
-                    'Update employee role',
-                    'Update employee manager'
+                    'Add Employee/Role/Department',
+                    'Delete Employee/Role/Department',
+                    'Update employee',
+                    'View Departments',
+                    'View Roles'
                 ]
             })
         .then((response) => {
             switch (response.choice) {
                 case 'View all employees':
-                    action.view();
-                    break;
-                case 'View all employees by Department':
-                    action.viewDepartment();
-                    break;
-                case 'View all employees by Manager':
-                    action.viewManager();
+                    module.view();
                     break;
                 case 'Add employee':
-                    action.addEmployee();
+                    module.add();
                     break;
                 case 'Remove employee':
-                    action.removeEmployee();
+                    module.removeEmployee();
                     break;
                 case 'Update employee role':
-                    action.updateRole();
+                    module.updateRole();
                     break;
                 case 'Update employee manager':
-                    action.updateManager();
+                    module.updateManager();
                     break;
             }
         })
