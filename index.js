@@ -1,11 +1,11 @@
 const inquirer = require("inquirer");
 const Module = require("./lib/Module");
 
-const module = new Module();
-
 
 
 function begin() {
+    const module = new Module();
+
     inquirer
         .prompt(
             {
@@ -43,4 +43,7 @@ function begin() {
         
 }
 
+
 begin();
+
+
