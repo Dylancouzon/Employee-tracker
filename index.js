@@ -25,7 +25,7 @@ function begin() {
         .then((response) => {
             switch (response.choice) {
                 case 'View all employees':
-                    modules.view();
+                    modules.view(begin);
                     break;
                 case 'Add Employee/Role/Department':
                     modules.add();
@@ -34,7 +34,7 @@ function begin() {
                     modules.delete();
                     break;
                 case 'Update employee':
-                    modules.updateRole();
+                    modules.updateEmployee();
                     break;
                 case 'View Departments':
                     modules.viewDepartments();
