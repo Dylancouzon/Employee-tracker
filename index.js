@@ -1,10 +1,10 @@
 const inquirer = require("inquirer");
-const Module = require("./lib/Module");
+
+const modules = require("./lib/Module");
 
 
 
 function begin() {
-    const module = new Module();
 
     inquirer
         .prompt(
@@ -18,29 +18,32 @@ function begin() {
                     'Delete Employee/Role/Department',
                     'Update employee',
                     'View Departments',
-                    'View Roles'
+                    'View Roles',
+                    'Exit'
                 ]
             })
         .then((response) => {
             switch (response.choice) {
                 case 'View all employees':
-                    module.view();
+                    modules.view();
                     break;
                 case 'Add Employee/Role/Department':
-                    module.add();
+                    modules.add();
                     break;
                 case 'Delete Employee/Role/Department':
-                    module.delete();
+                    modules.delete();
                     break;
                 case 'Update employee':
-                    module.updateRole();
+                    modules.updateRole();
                     break;
                 case 'View Departments':
-                    module.viewDepartments();
+                    modules.viewDepartments();
                     break;
                 case 'View Roles':
-                    module.viewRoles();
+                    modules.viewRoles();
                     break;
+                case 'Exit':
+                    process.exit()
             }
         })
 
