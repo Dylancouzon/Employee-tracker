@@ -26,21 +26,24 @@ function begin() {
                 case 'View all employees':
                     module.view();
                     break;
-                case 'Add employee':
+                case 'Add Employee/Role/Department':
                     module.add();
                     break;
-                case 'Remove employee':
-                    module.removeEmployee();
+                case 'Delete Employee/Role/Department':
+                    module.delete();
                     break;
-                case 'Update employee role':
+                case 'Update employee':
                     module.updateRole();
                     break;
-                case 'Update employee manager':
-                    module.updateManager();
+                case 'View Departments':
+                    module.viewDepartments();
+                    break;
+                case 'View Roles':
+                    module.viewRoles();
                     break;
             }
         })
-        
+
 }
 
 
