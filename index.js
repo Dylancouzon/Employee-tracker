@@ -1,5 +1,4 @@
 const inquirer = require("inquirer");
-
 const modules = require("./lib/Module");
 
 
@@ -28,21 +27,21 @@ function begin() {
                     modules.view(begin);
                     break;
                 case 'Add Employee/Role/Department':
-                    modules.add();
+                    modules.add(begin);
                     break;
                 case 'Delete Employee/Role/Department':
-                    modules.delete();
+                    modules.delete(begin);
                     break;
                 case 'Update employee':
-                    modules.updateEmployee();
+                    modules.updateEmployee(begin);
                     break;
                 case 'View Departments':
-                    modules.viewDepartments();
+                    modules.viewDepartments(begin);
                     break;
                 case 'View Roles':
-                    modules.viewRoles();
+                    modules.viewRoles(begin);
                     break;
-                case 'Exit':
+                default:
                     process.exit()
             }
         })
